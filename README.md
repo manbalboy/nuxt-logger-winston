@@ -1,5 +1,5 @@
 # nuxt-logger-winston
- 
+
 ## contributor
 @manbalboy(정훈) : manbalboy@hanmail.net
 
@@ -19,7 +19,7 @@ npm install nuxt-logger-winston
 
 ## setup
 1. Add nuxt-logger-winston to the modules section of nuxt.config.js
-2. Configure it : 
+2. Configure it :
 
 ```js
 {
@@ -70,43 +70,43 @@ const LOG_COLORS = {
 
 ### LOG_ACTIVE
 Default : true  
-Determines whether the log is active or inactive  
+Determines whether the log is active or inactive
 
 ### LOG_BASE_DIRECTORY_PATH
 Default : 'logs'
-Set the LOG directory name based on the root path  
+Set the LOG directory name based on the root path
 
 ### DATE_FORMAT
 Default : 'YYYY-MM-DD HH:mm:ss:ms'
-Format to be represented in timestamp entries  
+Format to be represented in timestamp entries
 
 ### IS_JSON_FORMAT
 Default : true  
-Whether the logger format is expressed in JSON format  
+Whether the logger format is expressed in JSON format
 
 ### CONSOLE_LOG_CONFIG
-Default : 
+Default :
 ```
   CONSOLE_LOG_CONFIG: {
     IS_ACTIVE: true,
     LOG_LEVEL: 'debug',
   },
 ```
-LOG setting object to be displayed in CMD window  
+LOG setting object to be displayed in CMD window
 
 ### CONSOLE_LOG_CONFIG.IS_ACTIVE
-Default : true  
+Default : true
 
-Set whether to display the log in the CMD window  
+Set whether to display the log in the CMD window
 
 ### CONSOLE_LOG_CONFIG.LOG_LEVEL
-Default : 'debug'  
+Default : 'debug'
 
-Log level to be displayed on CMD  
+Log level to be displayed on CMD
 
 
 ### FILE_LOG_CONFIG
-Default : 
+Default :
 ```
   FILE_LOG_CONFIG: [
     { FILE_NAME: 'error', LOG_LEVEL: 'error', DATE_PATTERN: 'YYYY-MM-DD-HH' },
@@ -129,7 +129,7 @@ Log level that should be written to the file
 Default : 'YYYY-MM-DD-HH'  
 A string representing the moment.js date format to be used for rotating. The meta characters used in this string will dictate the frequency of the file rotation. For example, if your DATE_PATTERN is simply 'HH' you will end up with 24 log files that are picked up and appended to every day. (default: 'YYYY-MM-DD-HH')
 
-[DATE_PATTERN RULE](https://momentjs.com/docs/#/displaying/format/)  
+[DATE_PATTERN RULE](https://momentjs.com/docs/#/displaying/format/)
 
 ### BANNER_STRING
 Creates a banner string at startup.
