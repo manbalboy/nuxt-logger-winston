@@ -1,0 +1,29 @@
+{
+  "name": "nuxt-logger-winston",
+  "version": "0.0.1",
+  "description": "Nuxt logger based on winston",
+  "main": "logger/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manbalboy/nuxt-logger-winston.git"
+  },
+  "keywords": [
+    "Nuxt",
+    "log",
+    "winston"
+  ],
+  "author": "manbalboy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/manbalboy/nuxt-logger-winston/issues"
+  },
+  "homepage": "https://github.com/manbalboy/nuxt-logger-winston#readme",
+  "dependencies": {
+    "chalk": "^5.0.0",
+    "winston": "^3.4.0",
+    "winston-daily-rotate-file": "^4.6.0"
+  }
+}
