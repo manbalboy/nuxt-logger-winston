@@ -7,7 +7,7 @@ const { LOG_COLORS, LOG_LEVELS, DEFAULT_OPTIONS } = require('./config.js');
 const { extractNetworkInfo, makeStringMessage, showBanner } = require('./utils.js');
 winston.addColors(LOG_COLORS);
 
-export default function logModule(_logOptions) {
+export default function logModule(_logOptions = {}) {
   // Config variable
   const options = {
     ...DEFAULT_OPTIONS,

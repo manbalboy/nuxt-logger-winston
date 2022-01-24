@@ -1,7 +1,7 @@
 {
   "name": "nuxt-logger-winston",
-  "version": "0.0.2",
-  "description": "Nuxt logger based on winston",
+  "version": "0.0.3",
+  "description": "Winston based Nuxt logger that works only on SSR",
   "main": "logger/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -13,7 +13,8 @@
   "keywords": [
     "Nuxt",
     "log",
-    "winston"
+    "winston",
+    "SSR"
   ],
   "author": "manbalboy",
   "license": "MIT",
