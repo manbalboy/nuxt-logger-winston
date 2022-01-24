@@ -17,7 +17,6 @@ export default function logModule(_logOptions = {}) {
   const {
     LOG_ACTIVE,
     LOG_BASE_DIRECTORY_PATH,
-    IS_JSON_FORMAT,
     DATE_FORMAT,
     CONSOLE_LOG_CONFIG,
     FILE_LOG_CONFIG,
@@ -29,10 +28,15 @@ export default function logModule(_logOptions = {}) {
 
     // Console logger setting
     if (CONSOLE_LOG_CONFIG?.IS_ACTIVE) {
+
+      const consoleFormats = [colorize({all: true}), timestamp({format: DATE_FORMAT})];
+      if(CONSOLE_LOG_CONFIG.IS_JSON) {
+        consoleFormats.push(json());
+      }
       const consoleLogOptions = {
         level: CONSOLE_LOG_CONFIG.LOG_LEVEL || 'debug',
         levels: LOG_LEVELS,
-        format: combine(colorize({ all: true }), timestamp({ format: DATE_FORMAT })),
+        format: combine(...consoleFormats),
       };
       transports.push(new winston.transports.Console(consoleLogOptions));
     }
@@ -58,18 +62,20 @@ export default function logModule(_logOptions = {}) {
       }
 
       FILE_LOG_CONFIG.forEach(FILE_LOGGER => {
+        if (FILE_LOGGER.IS_JSON === undefined) FILE_LOGGER.IS_JSON = true;
         transports.push(
           new WinstonDaily({
             level: FILE_LOGGER.LOG_LEVEL || 'error',
             datePattern: FILE_LOGGER.DATE_PATTERN || 'YYYY-MM-DD-HH',
             dirname: path.join(process.cwd(), `/${LOG_BASE_DIRECTORY_PATH}`, `/${FILE_LOGGER.FILE_NAME}`),
             filename: `${os.hostname}.%DATE%.${FILE_LOGGER.FILE_NAME}.log`,
+            format: FILE_LOGGER.IS_JSON ? combine(json()) : combine(),
           }),
         );
       });
     }
 
-    // Log format setting
+    // Log global format setting
     const logFormat = [
       label({ label: `[host : ${os.hostname}]` }),
       timestamp({ format: DATE_FORMAT }),
@@ -77,9 +83,7 @@ export default function logModule(_logOptions = {}) {
         return `[${info.timestamp}] ${info.label} [${info.level}] : ${makeStringMessage(info)}`;
       }),
     ];
-    if (IS_JSON_FORMAT) {
-      logFormat.push(json());
-    }
+
     const format = combine(...logFormat);
 
     // logger create

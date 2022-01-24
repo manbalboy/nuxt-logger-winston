@@ -90,6 +90,7 @@ Default :
   CONSOLE_LOG_CONFIG: {
     IS_ACTIVE: true,
     LOG_LEVEL: 'debug',
+    IS_JSON: false
   },
 ```
 LOG setting object to be displayed in CMD window
@@ -104,13 +105,17 @@ Default : 'debug'
 
 Log level to be displayed on CMD
 
+### CONSOLE_LOG_CONFIG.IS_JSON
+Default : false
+
+JSON format or not
 
 ### FILE_LOG_CONFIG
 Default :
 ```
   FILE_LOG_CONFIG: [
-    { FILE_NAME: 'error', LOG_LEVEL: 'error', DATE_PATTERN: 'YYYY-MM-DD-HH' },
-    { FILE_NAME: 'all', LOG_LEVEL: 'debug', DATE_PATTERN: 'YYYY-MM-DD' },
+    { FILE_NAME: 'error', LOG_LEVEL: 'error', DATE_PATTERN: 'YYYY-MM-DD', IS_JSON: true },
+    { FILE_NAME: 'all', LOG_LEVEL: 'debug', DATE_PATTERN: 'YYYY-MM-DD', IS_JSON: true },
   ]
 ```
 
@@ -122,15 +127,27 @@ Create a file log object and include it in the file log configuration array.
 **FILE_NAME** is a required value and cannot be duplicated.
 
 ### FILE_LOG_CONFIG[0].LOG_LEVEL (String)
-Default : 'error'
+Default : 'error'  
+
 Log level that should be written to the file
 
 ### FILE_LOG_CONFIG[0].DATE_PATTERN (String)
 Default : 'YYYY-MM-DD-HH'  
+
 A string representing the moment.js date format to be used for rotating. The meta characters used in this string will dictate the frequency of the file rotation. For example, if your DATE_PATTERN is simply 'HH' you will end up with 24 log files that are picked up and appended to every day. (default: 'YYYY-MM-DD-HH')
+
+### FILE_LOG_CONFIG[0].IS_JSON
+Default : true  
+
+JSON format or not
 
 [DATE_PATTERN RULE](https://momentjs.com/docs/#/displaying/format/)
 
 ### BANNER_STRING
 Creates a banner string at startup.
 The default is the current author's default banner is active.  
+
+## Example
+/examples folder reference Main file 
+- nuxt.config.js
+- /examples/pages/index.uve

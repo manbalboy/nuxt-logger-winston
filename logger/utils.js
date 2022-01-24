@@ -9,6 +9,19 @@ export function extractNetworkInfo(req, res = {}) {
   };
 }
 
+function replacerFunc() {
+  const visited = new WeakSet();
+  return (key, value) => {
+    if (typeof value === 'object' && value !== null) {
+      if (visited.has(value)) {
+        return;
+      }
+      visited.add(value);
+    }
+    return value;
+  };
+}
+
 export function makeStringMessage(conversionTargets) {
   const arrayExclusionKey = ['level', 'label', 'timestamp'];
 
@@ -16,7 +29,7 @@ export function makeStringMessage(conversionTargets) {
     .filter(([key, _]) => !arrayExclusionKey.includes(key))
     .map(([key, value]) => {
       if (typeof value === 'object') {
-        value = JSON.stringify(value);
+        value = JSON.stringify(value, replacerFunc);
       }
       if (key === 'message') {
         return `${value}`;

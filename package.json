@@ -1,6 +1,6 @@
 {
   "name": "nuxt-logger-winston",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "Winston based Nuxt logger that works only on SSR",
   "main": "logger/index.js",
   "scripts": {
