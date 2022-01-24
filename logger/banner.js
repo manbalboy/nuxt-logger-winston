@@ -1,4 +1,4 @@
-const BANNER_STRING =
+export const BANNER_STRING =
   `
 ██╗      ██████╗  ██████╗  ██████╗ ███████╗██████╗                     
 ██║     ██╔═══██╗██╔════╝ ██╔════╝ ██╔════╝██╔══██╗                    
@@ -8,7 +8,7 @@ const BANNER_STRING =
 ╚══════╝ ╚═════╝  ╚═════╝  ╚═════╝ ╚══════╝╚═╝  ╚═╝    prod by manbalboy  
   `
 
-const AUTHOR_BANNER_STRING = `logger pord by manbalboy
+export const AUTHOR_BANNER_STRING = `logger pord by manbalboy
 https://github.com/manbalboy
 ╔╦╗╔═╗╔╗╔╔╗ ╔═╗╦  ╔╗ ╔═╗╦ ╦
 ║║║╠═╣║║║╠╩╗╠═╣║  ╠╩╗║ ║╚╦╝
@@ -16,7 +16,7 @@ https://github.com/manbalboy
 manbalboy@hanmail.net
 `
 
-const BANNER_STRING_SC  =
+export const BANNER_STRING_SC  =
   `
 ███████╗ █████╗ ███╗   ███╗███████╗██╗   ██╗███╗   ██╗ ██████╗      ██████╗ █████╗ ██████╗ ██████╗ 
 ██╔════╝██╔══██╗████╗ ████║██╔════╝██║   ██║████╗  ██║██╔════╝     ██╔════╝██╔══██╗██╔══██╗██╔══██╗

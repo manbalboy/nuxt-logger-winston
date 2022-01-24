@@ -1,4 +1,4 @@
-const BANNER_STRING = require('./banner');
+const {BANNER_STRING} = require('./banner');
 
 const LOG_LEVELS = {
   error: 0,

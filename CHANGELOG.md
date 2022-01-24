@@ -1,4 +1,8 @@
 # Changelog
+
+## [0.0.6] 2022-01-24
+- banner change
+
 ## [0.0.5] 2022-01-24
 ### Bug fix
 - utils error fix

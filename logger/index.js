@@ -103,9 +103,9 @@ export default function logModule(_logOptions = {}) {
 
     // Apply Log to appropriate Nuxt hook
     this.nuxt.hook('ready', () => {
-      showBanner(BANNER_STRING);
+
       if (Logger) {
-        Logger.info('nuxt log setting success prod by manbalboy');
+        showBanner(BANNER_STRING);
       }
     });
 
