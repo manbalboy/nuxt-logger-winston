@@ -1,3 +1,5 @@
+const BANNER_STRING = require('./banner');
+
 const LOG_LEVELS = {
   error: 0,
   alert: 1,
@@ -30,14 +32,7 @@ const DEFAULT_OPTIONS = {
     { FILE_NAME: 'error', LOG_LEVEL: 'error', DATE_PATTERN: 'YYYY-MM-DD', IS_JSON: true },
     { FILE_NAME: 'all', LOG_LEVEL: 'debug', DATE_PATTERN: 'YYYY-MM-DD', IS_JSON: true },
   ],
-
-  BANNER_STRING: `logger pord by manbalboy
-https://github.com/manbalboy
-╔╦╗╔═╗╔╗╔╔╗ ╔═╗╦  ╔╗ ╔═╗╦ ╦
-║║║╠═╣║║║╠╩╗╠═╣║  ╠╩╗║ ║╚╦╝
-╩ ╩╩ ╩╝╚╝╚═╝╩ ╩╩═╝╚═╝╚═╝ ╩ 
-manbalboy@hanmail.net
-`,
+  BANNER_STRING,
 };
 
 module.exports = {
