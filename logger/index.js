@@ -21,6 +21,7 @@ export default function logModule(_logOptions = {}) {
     CONSOLE_LOG_CONFIG,
     FILE_LOG_CONFIG,
     BANNER_STRING,
+    IS_BANNER
   } = options;
 
   if (LOG_ACTIVE) {
@@ -66,7 +67,9 @@ export default function logModule(_logOptions = {}) {
         transports.push(
           new WinstonDaily({
             level: FILE_LOGGER.LOG_LEVEL || 'error',
-            datePattern: FILE_LOGGER.DATE_PATTERN || 'YYYY-MM-DD-HH',
+            datePattern: FILE_LOGGER.DATE_PATTERN || 'YYYY-MM-DD',
+            zippedArchive: FILE_LOGGER.IS_ZIP ||true,
+            maxFiles: FILE_LOGGER.MAX_FILES ||'14d',
             dirname: path.join(process.cwd(), `/${LOG_BASE_DIRECTORY_PATH}`, `/${FILE_LOGGER.FILE_NAME}`),
             filename: `${os.hostname}.%DATE%.${FILE_LOGGER.FILE_NAME}.log`,
             format: FILE_LOGGER.IS_JSON ? combine(json()) : combine(),
@@ -105,6 +108,7 @@ export default function logModule(_logOptions = {}) {
     this.nuxt.hook('ready', () => {
 
       if (Logger) {
+        if(IS_BANNER)
         showBanner(BANNER_STRING);
       }
     });
