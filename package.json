@@ -1,6 +1,6 @@
 {
   "name": "nuxt-logger-winston",
-  "version": "0.0.6",
+  "version": "0.0.8",
   "description": "Winston based Nuxt logger that works only on SSR",
   "main": "logger/index.js",
   "scripts": {
@@ -14,7 +14,9 @@
     "Nuxt",
     "log",
     "winston",
-    "SSR"
+    "SSR",
+    "nuxtjs",
+    "vue ssr"
   ],
   "author": "manbalboy",
   "license": "MIT",
