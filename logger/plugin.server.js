@@ -1,3 +1,3 @@
-export default function (ctx, inject) {
-  inject('logger', process.logger || {});
+export default function (ctx) {
+  ctx.$logger =  process.logger || {};
 }
