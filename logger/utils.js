@@ -40,7 +40,7 @@ export function makeStringMessage(conversionTargets) {
 }
 
 
-
-export function showBanner(bannerWord) {
-  console.log(chalk.blue.bold(bannerWord));
+export function showBanner(bannerString = "") {
+  const {blue} = chalk;
+  console.log(blue(bannerString));
 }

@@ -2,11 +2,12 @@ const path = require('path');
 const os = require('os');
 const winston = require('winston');
 const WinstonDaily = require('winston-daily-rotate-file');
-const { combine, timestamp, printf, colorize, json, label } = winston.format;
-const { LOG_COLORS, LOG_LEVELS, DEFAULT_OPTIONS } = require('./config.js');
-const { extractNetworkInfo, makeStringMessage, showBanner } = require('./utils.js');
+const {combine, timestamp, printf, colorize, json, label} = winston.format;
+const {LOG_COLORS, LOG_LEVELS, DEFAULT_OPTIONS} = require('./config.js');
+const {extractNetworkInfo, makeStringMessage, showBanner} = require('./utils.js');
 winston.addColors(LOG_COLORS);
 
+// noinspection JSUnusedGlobalSymbols
 export default function logModule(_logOptions = {}) {
   // Config variable
   const options = {
@@ -31,7 +32,7 @@ export default function logModule(_logOptions = {}) {
     if (CONSOLE_LOG_CONFIG?.IS_ACTIVE) {
 
       const consoleFormats = [colorize({all: true}), timestamp({format: DATE_FORMAT})];
-      if(CONSOLE_LOG_CONFIG.IS_JSON) {
+      if (CONSOLE_LOG_CONFIG.IS_JSON) {
         consoleFormats.push(json());
       }
       const consoleLogOptions = {
@@ -68,8 +69,8 @@ export default function logModule(_logOptions = {}) {
           new WinstonDaily({
             level: FILE_LOGGER.LOG_LEVEL || 'error',
             datePattern: FILE_LOGGER.DATE_PATTERN || 'YYYY-MM-DD',
-            zippedArchive: FILE_LOGGER.IS_ZIP ||true,
-            maxFiles: FILE_LOGGER.MAX_FILES ||'14d',
+            zippedArchive: FILE_LOGGER.IS_ZIP || true,
+            maxFiles: FILE_LOGGER.MAX_FILES || '14d',
             dirname: path.join(process.cwd(), `/${LOG_BASE_DIRECTORY_PATH}`, `/${FILE_LOGGER.FILE_NAME}`),
             filename: `${os.hostname}.%DATE%.${FILE_LOGGER.FILE_NAME}.log`,
             format: FILE_LOGGER.IS_JSON ? combine(json()) : combine(),
@@ -80,8 +81,8 @@ export default function logModule(_logOptions = {}) {
 
     // Log global format setting
     const logFormat = [
-      label({ label: `[host : ${os.hostname}]` }),
-      timestamp({ format: DATE_FORMAT }),
+      label({label: `[host : ${os.hostname}]`}),
+      timestamp({format: DATE_FORMAT}),
       printf(info => {
         return `[${info.timestamp}] ${info.label} [${info.level}] : ${makeStringMessage(info)}`;
       }),
@@ -108,8 +109,8 @@ export default function logModule(_logOptions = {}) {
     this.nuxt.hook('ready', () => {
 
       if (Logger) {
-        if(IS_BANNER)
-        showBanner(BANNER_STRING);
+        if (IS_BANNER)
+          showBanner(BANNER_STRING);
       }
     });
 

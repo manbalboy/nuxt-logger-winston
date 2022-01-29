@@ -1,3 +1,4 @@
+// noinspection JSUnusedGlobalSymbols
 export default function (ctx) {
-  ctx.$logger =  process.logger || {};
+  ctx.$logger = process.logger || {};
 }
