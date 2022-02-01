@@ -1,5 +1,7 @@
 # Changelog
 
+## [0.0.8]
+
 ## [0.0.6] 2022-01-24
 - banner change
 
